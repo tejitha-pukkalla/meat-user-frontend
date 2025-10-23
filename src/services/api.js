@@ -17,10 +17,11 @@ export const fetchSubcategories = async (categoryId, token) => {
 };
 
 
-// export const fetchProducts = async (subcategoryId, token) => {
-//   const res = await fetch(`http://localhost:4000/api/public/products?/${id}`, {
-//     headers: { Authorization: `Bearer ${token}` },
-//   });
-//   const json = await res.json();
-//   return json.data || [];
-// };
+export const fetchProducts = async (subcategoryId, token) => {
+  const res = await fetch(`http://localhost:4000/api/public/products`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const json = await res.json();
+  console.log(json)
+  return json.data || [];
+};

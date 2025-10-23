@@ -1,10 +1,13 @@
 import React from "react";
+import { useState } from "react";
+import SubcategoryPage from "./pages/SubcategoryPage";
 
-const SubcategoryGrid = ({ subcategories, onAdd, onRemove }) => {
+const SubcategoryGrid = ({ subcategories, onAdd, onRemove, onSubcategoryClick }) => {
   const fallbackImage =
     "https://res.cloudinary.com/demo/image/upload/v1699999999/default-meat.jpg";
 
   if (!subcategories?.length) return null;
+
 
   return (
     <div className="mt-10">
@@ -12,7 +15,7 @@ const SubcategoryGrid = ({ subcategories, onAdd, onRemove }) => {
         Available Cuts
       </h2>
 
-      <div
+      <div 
         className="
           grid 
           grid-cols-1
@@ -21,11 +24,12 @@ const SubcategoryGrid = ({ subcategories, onAdd, onRemove }) => {
           lg:grid-cols-4 
           gap-6 
           justify-items-center
+          cursor-pointer
         "
       >
         {subcategories.map((item) => (
-          
-          <div
+
+          <div onClick={() => onSubcategoryClick(item._id)}
             key={item._id}
             className="
               bg-white 
@@ -43,7 +47,7 @@ const SubcategoryGrid = ({ subcategories, onAdd, onRemove }) => {
               min-w-[250px]
             "
           >
-            
+
             {/* Image */}
             <img
               src={item.subcategory_image?.url || fallbackImage}

@@ -8,6 +8,7 @@ import UserLogin from "./Components/UserLogin";
 import Profile from "./Components/Profile";
 import { AuthProvider } from "./context/AuthContext"; // ✅ Adjust path if needed
 import SubcategoryPage from "./Components/pages/SubcategoryPage";
+import ProductPage from "./Components/pages/ProductPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<UserLogin />} /> {/* ✅ Login page */}
           <Route path="/profile" element={<Profile />} /> {/* ✅ Profile page */}
            <Route path="/category/:categorySlug" element={<SubcategoryPage />} />
+            <Route path="/subcategory/:subcategoryId/products" element={<ProductPage />} />
         </Routes>
         <Footer /> {/* ✅ Always visible */}
       </AuthProvider>
